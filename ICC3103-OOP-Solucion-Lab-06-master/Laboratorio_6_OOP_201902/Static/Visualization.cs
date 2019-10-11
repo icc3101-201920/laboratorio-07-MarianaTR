@@ -22,7 +22,7 @@ namespace Laboratorio_6_OOP_201902.Static
                     CombatCard j = (CombatCard)i;
                     h += $"|{j.AttackPoints}| ";
                 }
-                Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange)+ "]", h);
+                Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange)+ "] : ", h);
                 List<Card> car = board.PlayerCards[0][EnumType.range];
                 string ran = "";
                 foreach (Card i in car)
@@ -30,7 +30,7 @@ namespace Laboratorio_6_OOP_201902.Static
                     CombatCard j = (CombatCard)i;
                     ran += $"|{j.AttackPoints}| ";
                 }
-                Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "]" , ran);
+                Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "] : " , ran);
                 List<Card> cardss = board.PlayerCards[0][EnumType.melee];
                 string me = "";
                 foreach (Card i in cardss)
@@ -38,7 +38,15 @@ namespace Laboratorio_6_OOP_201902.Static
                     CombatCard j = (CombatCard)i;
                     me += $"|{j.AttackPoints}| ";
                 }
-                Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "]", me);
+                Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "] : ", me);
+
+                List<SpecialCard> m = board.WeatherCards;
+                string sp = "";
+                foreach (SpecialCard specialCard in m)
+                {
+                    sp += $"|{specialCard.Name}|  ";
+                }
+                Console.WriteLine(sp);
 
                 Console.WriteLine($"You  -  LifePoints {lifePoints[1]}   -  AttackPoints{attackPoints[1]}");
                 List<Card> cards0 = board.PlayerCards[1][EnumType.longRange];
@@ -48,7 +56,7 @@ namespace Laboratorio_6_OOP_201902.Static
                     CombatCard j = (CombatCard)i;
                     h0 += $"|{j.AttackPoints}| ";
                 }
-                Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "]", h0);
+                Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "] : ", h0);
                 List<Card> car0 = board.PlayerCards[1][EnumType.range];
                 string ran0 = "";
                 foreach (Card i in car0)
@@ -56,7 +64,7 @@ namespace Laboratorio_6_OOP_201902.Static
                     CombatCard j = (CombatCard)i;
                     ran0 += $"|{j.AttackPoints}| ";
                 }
-                Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "]", ran0);
+                Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "] : ", ran0);
                 List<Card> cardss0 = board.PlayerCards[1][EnumType.melee];
                 string me0 = "";
                 foreach (Card i in cardss0)
@@ -64,7 +72,7 @@ namespace Laboratorio_6_OOP_201902.Static
                     CombatCard j = (CombatCard)i;
                     me0 += $"|{j.AttackPoints}| ";
                 }
-                Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "]", me0);
+                Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "] : ", me0);
 
             }
             else
@@ -77,7 +85,7 @@ namespace Laboratorio_6_OOP_201902.Static
                     CombatCard j = (CombatCard)i;
                     h += $"|{j.AttackPoints}| ";
                 }
-                Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "]", h);
+                Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "] : ", h);
                 List<Card> car = board.PlayerCards[1][EnumType.range];
                 string ran = "";
                 foreach (Card i in car)
@@ -85,7 +93,7 @@ namespace Laboratorio_6_OOP_201902.Static
                     CombatCard j = (CombatCard)i;
                     ran += $"|{j.AttackPoints}| ";
                 }
-                Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "]", ran);
+                Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "] : ", ran);
                 List<Card> cardss = board.PlayerCards[1][EnumType.melee];
                 string me = "";
                 foreach (Card i in cardss)
@@ -93,10 +101,15 @@ namespace Laboratorio_6_OOP_201902.Static
                     CombatCard j = (CombatCard)i;
                     me += $"|{j.AttackPoints}| ";
                 }
-                Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "]", me);
+                Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "] : ", me);
 
                 List<SpecialCard> mm = board.WeatherCards;
-
+                string spe = "";
+                foreach(SpecialCard specialCard in mm)
+                {
+                    spe += $"|{specialCard.Name}|  ";
+                }
+                Console.WriteLine(spe);
                 Console.WriteLine($"You  -  LifePoints {lifePoints[0]}   -  AttackPoints{attackPoints[0]}");
                 List<Card> cards0 = board.PlayerCards[0][EnumType.longRange];
                 string h0 = "";
@@ -105,7 +118,8 @@ namespace Laboratorio_6_OOP_201902.Static
                     CombatCard j = (CombatCard)i;
                     h0 += $"|{j.AttackPoints}| ";
                 }
-                Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "]", h0);
+             
+                Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "] : ", h0);
                 List<Card> car0 = board.PlayerCards[0][EnumType.range];
                 string ran0 = "";
                 foreach (Card i in car0)
@@ -113,7 +127,7 @@ namespace Laboratorio_6_OOP_201902.Static
                     CombatCard j = (CombatCard)i;
                     ran0 += $"|{j.AttackPoints}| ";
                 }
-                Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "]", ran0);
+                Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "] : ", ran0);
                 List<Card> cardss0 = board.PlayerCards[0][EnumType.melee];
                 string me0 = "";
                 foreach (Card i in cardss0)
@@ -121,7 +135,7 @@ namespace Laboratorio_6_OOP_201902.Static
                     CombatCard j = (CombatCard)i;
                     me0 += $"|{j.AttackPoints}| ";
                 }
-                Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "]", me0);
+                Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "] : ", me0);
 
             }
 

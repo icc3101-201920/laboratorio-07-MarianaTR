@@ -7,6 +7,6 @@ namespace Laboratorio_6_OOP_201902
 {
     interface IAttackPoints
     {
-        public int[] GetAttackPoints(EnumType line = EnumType.None) { }
+        int[] GetAttackPoints(EnumType line = EnumType.None);
     }
 }
