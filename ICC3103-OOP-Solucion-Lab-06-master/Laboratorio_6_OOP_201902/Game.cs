@@ -134,6 +134,13 @@ namespace Laboratorio_6_OOP_201902
                     userInput = Visualization.GetUserInput(this.Captains.Count - 1);
                     ActivePlayer.ChooseCaptainCard(new SpecialCard(Captains[userInput].Name, Captains[userInput].Type, Captains[userInput].Effect));
                     //Asignar mano
+                    Board board = new Board();
+                    Player player = new Player();
+                    Player player1 = new Player();
+                    
+                    //int[] life = new int[] { player.LifePoints, player1.LifePoints };
+                    //int[] attack = new int[] { player.AttackPoints, player1.AttackPoints};
+                    //Visualization.ShowBoard(board, _, life,attack);
                     ActivePlayer.FirstHand();
                     //Mostrar mano
                     Visualization.ShowHand(ActivePlayer.Hand);
@@ -158,8 +165,26 @@ namespace Laboratorio_6_OOP_201902
                 }
                 turn += 1;
             }
+            Visualization.ShowBoard(boardGame, activePlayer.Id, LifePoints(), Attack());
 
-            
+
+        }
+
+        public int[] LifePoints()
+        {
+            int[] points = new int[] { 0,0};
+            points[0] = players[0].LifePoints;
+            points[1] = players[1].LifePoints;
+            return points;
+        }
+
+        public int[] Attack()
+        {
+            int[] points = new int[] { 0, 0 };
+            points[0] = players[0].GetAttackPoints()[0];
+            points[1] = players[1].GetAttackPoints()[0];
+            return points;
+
         }
         public void AddDecks()
         {

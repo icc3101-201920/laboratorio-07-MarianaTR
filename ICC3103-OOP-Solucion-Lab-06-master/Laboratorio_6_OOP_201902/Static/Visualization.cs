@@ -8,135 +8,161 @@ namespace Laboratorio_6_OOP_201902.Static
 {
     public static class Visualization
     {
-        public static void ShowBoard(Board board, int player,int[] lifePoints,int[] attackPoints)
+        public static void ShowBoard(Board board, int player, int[] lifePoints, int[] attackPoints)
         {
             Console.WriteLine("Board:");
-            int[] values;
+            
             if (player == 1)
             {
-                Console.WriteLine($"Oponente  -  LifePoints {lifePoints[0]}   -  AttackPoints{attackPoints[0]}");
-                List<Card> cards = board.PlayerCards[0][EnumType.longRange];
-                string h = "";
-                foreach (Card i in cards)
+                if (!board.PlayerCards[0].ContainsKey(EnumType.longRange) && !board.PlayerCards[0].ContainsKey(EnumType.melee) && !board.PlayerCards[0].ContainsKey(EnumType.range))
                 {
-                    CombatCard j = (CombatCard)i;
-                    h += $"|{j.AttackPoints}| ";
+                    Console.WriteLine($"Oponente  -  LifePoints {lifePoints[0]}   -  AttackPoints {attackPoints[0]}");
+                    Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange).Length + "] : " + "0");
+                    Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range).Length + "] : " + "0");
+                    Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee).Length + "] : " + "0");
+                    Console.WriteLine($"You  -  LifePoints {lifePoints[1]}   -  AttackPoints {attackPoints[1]}");
+                    Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange).Length + "] : " + "0");
+                    Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range).Length + "] : " + "0");
+                    Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee).Length + "] : " + "0");
                 }
-                Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange)+ "] : ", h);
-                List<Card> car = board.PlayerCards[0][EnumType.range];
-                string ran = "";
-                foreach (Card i in car)
+                else
                 {
-                    CombatCard j = (CombatCard)i;
-                    ran += $"|{j.AttackPoints}| ";
-                }
-                Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "] : " , ran);
-                List<Card> cardss = board.PlayerCards[0][EnumType.melee];
-                string me = "";
-                foreach (Card i in cardss)
-                {
-                    CombatCard j = (CombatCard)i;
-                    me += $"|{j.AttackPoints}| ";
-                }
-                Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "] : ", me);
+                    Console.WriteLine($"Oponente  -  LifePoints {lifePoints[0]}   -  AttackPoints {attackPoints[0]}");
+                    List<Card> cards = board.PlayerCards[0][EnumType.longRange];
+                    string h = "";
+                    foreach (Card i in cards)
+                    {
+                        CombatCard j = (CombatCard)i;
+                        h += $"|{j.AttackPoints}| ";
+                    }
+                    Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "] : ", h);
+                    List<Card> car = board.PlayerCards[0][EnumType.range];
+                    string ran = "";
+                    foreach (Card i in car)
+                    {
+                        CombatCard j = (CombatCard)i;
+                        ran += $"|{j.AttackPoints}| ";
+                    }
+                    Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "] : ", ran);
+                    List<Card> cardss = board.PlayerCards[0][EnumType.melee];
+                    string me = "";
+                    foreach (Card i in cardss)
+                    {
+                        CombatCard j = (CombatCard)i;
+                        me += $"|{j.AttackPoints}| ";
+                    }
+                    Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "] : ", me);
 
-                List<SpecialCard> m = board.WeatherCards;
-                string sp = "";
-                foreach (SpecialCard specialCard in m)
-                {
-                    sp += $"|{specialCard.Name}|  ";
-                }
-                Console.WriteLine(sp);
+                    List<SpecialCard> m = board.WeatherCards;
+                    string sp = "";
+                    foreach (SpecialCard specialCard in m)
+                    {
+                        sp += $"|{specialCard.Name}|  ";
+                    }
+                    Console.WriteLine(sp);
 
-                Console.WriteLine($"You  -  LifePoints {lifePoints[1]}   -  AttackPoints{attackPoints[1]}");
-                List<Card> cards0 = board.PlayerCards[1][EnumType.longRange];
-                string h0 = "";
-                foreach (Card i in cards0)
-                {
-                    CombatCard j = (CombatCard)i;
-                    h0 += $"|{j.AttackPoints}| ";
+                    Console.WriteLine($"You  -  LifePoints {lifePoints[1]}   -  AttackPoints{attackPoints[1]}");
+                    List<Card> cards0 = board.PlayerCards[1][EnumType.longRange];
+                    string h0 = "";
+                    foreach (Card i in cards0)
+                    {
+                        CombatCard j = (CombatCard)i;
+                        h0 += $"|{j.AttackPoints}| ";
+                    }
+                    Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "] : ", h0);
+                    List<Card> car0 = board.PlayerCards[1][EnumType.range];
+                    string ran0 = "";
+                    foreach (Card i in car0)
+                    {
+                        CombatCard j = (CombatCard)i;
+                        ran0 += $"|{j.AttackPoints}| ";
+                    }
+                    Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "] : ", ran0);
+                    List<Card> cardss0 = board.PlayerCards[1][EnumType.melee];
+                    string me0 = "";
+                    foreach (Card i in cardss0)
+                    {
+                        CombatCard j = (CombatCard)i;
+                        me0 += $"|{j.AttackPoints}| ";
+                    }
+                    Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "] : ", me0);
                 }
-                Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "] : ", h0);
-                List<Card> car0 = board.PlayerCards[1][EnumType.range];
-                string ran0 = "";
-                foreach (Card i in car0)
-                {
-                    CombatCard j = (CombatCard)i;
-                    ran0 += $"|{j.AttackPoints}| ";
-                }
-                Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "] : ", ran0);
-                List<Card> cardss0 = board.PlayerCards[1][EnumType.melee];
-                string me0 = "";
-                foreach (Card i in cardss0)
-                {
-                    CombatCard j = (CombatCard)i;
-                    me0 += $"|{j.AttackPoints}| ";
-                }
-                Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "] : ", me0);
-
             }
             else
             {
-                Console.WriteLine($"Oponente  -  LifePoints {lifePoints[1]}   -  AttackPoints{attackPoints[1]}");
-                List<Card> cards = board.PlayerCards[1][EnumType.longRange];
-                string h = "";
-                foreach (Card i in cards)
+                if (!board.PlayerCards[0].ContainsKey(EnumType.longRange) && !board.PlayerCards[0].ContainsKey(EnumType.melee) && !board.PlayerCards[0].ContainsKey(EnumType.range))
                 {
-                    CombatCard j = (CombatCard)i;
-                    h += $"|{j.AttackPoints}| ";
+                    Console.WriteLine($"Oponente  -  LifePoints {lifePoints[1]}   -  AttackPoints {attackPoints[1]}");
+                    Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange).Length + "] : "+ "0");
+                    Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range).Length + "] : "+ "0");
+                    Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee).Length + "] : "+ "0");
+                    Console.WriteLine($"You  -  LifePoints {lifePoints[0]}   -  AttackPoints {attackPoints[0]}");
+                    Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange).Length + "] : "+ "0");
+                    Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range).Length + "] : "+ "0");
+                    Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee).Length + "] : "+ "0");
                 }
-                Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "] : ", h);
-                List<Card> car = board.PlayerCards[1][EnumType.range];
-                string ran = "";
-                foreach (Card i in car)
+                else
                 {
-                    CombatCard j = (CombatCard)i;
-                    ran += $"|{j.AttackPoints}| ";
-                }
-                Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "] : ", ran);
-                List<Card> cardss = board.PlayerCards[1][EnumType.melee];
-                string me = "";
-                foreach (Card i in cardss)
-                {
-                    CombatCard j = (CombatCard)i;
-                    me += $"|{j.AttackPoints}| ";
-                }
-                Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "] : ", me);
+                    Console.WriteLine($"Oponente  -  LifePoints {lifePoints[1]}   -  AttackPoints {attackPoints[1]}");
+                    List<Card> cards = board.PlayerCards[1][EnumType.longRange];
+                    string h = "";
+                    foreach (Card i in cards)
+                    {
+                        CombatCard j = (CombatCard)i;
+                        h += $"|{j.AttackPoints}| ";
+                    }
+                    Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "] : ", h);
+                    List<Card> car = board.PlayerCards[1][EnumType.range];
+                    string ran = "";
+                    foreach (Card i in car)
+                    {
+                        CombatCard j = (CombatCard)i;
+                        ran += $"|{j.AttackPoints}| ";
+                    }
+                    Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "] : ", ran);
+                    List<Card> cardss = board.PlayerCards[1][EnumType.melee];
+                    string me = "";
+                    foreach (Card i in cardss)
+                    {
+                        CombatCard j = (CombatCard)i;
+                        me += $"|{j.AttackPoints}| ";
+                    }
+                    Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "] : ", me);
 
-                List<SpecialCard> mm = board.WeatherCards;
-                string spe = "";
-                foreach(SpecialCard specialCard in mm)
-                {
-                    spe += $"|{specialCard.Name}|  ";
-                }
-                Console.WriteLine(spe);
-                Console.WriteLine($"You  -  LifePoints {lifePoints[0]}   -  AttackPoints{attackPoints[0]}");
-                List<Card> cards0 = board.PlayerCards[0][EnumType.longRange];
-                string h0 = "";
-                foreach (Card i in cards0)
-                {
-                    CombatCard j = (CombatCard)i;
-                    h0 += $"|{j.AttackPoints}| ";
-                }
-             
-                Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "] : ", h0);
-                List<Card> car0 = board.PlayerCards[0][EnumType.range];
-                string ran0 = "";
-                foreach (Card i in car0)
-                {
-                    CombatCard j = (CombatCard)i;
-                    ran0 += $"|{j.AttackPoints}| ";
-                }
-                Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "] : ", ran0);
-                List<Card> cardss0 = board.PlayerCards[0][EnumType.melee];
-                string me0 = "";
-                foreach (Card i in cardss0)
-                {
-                    CombatCard j = (CombatCard)i;
-                    me0 += $"|{j.AttackPoints}| ";
-                }
-                Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "] : ", me0);
+                    List<SpecialCard> mm = board.WeatherCards;
+                    string spe = "";
+                    foreach (SpecialCard specialCard in mm)
+                    {
+                        spe += $"|{specialCard.Name}|  ";
+                    }
+                    Console.WriteLine(spe);
+                    Console.WriteLine($"You  -  LifePoints {lifePoints[0]}   -  AttackPoints{attackPoints[0]}");
+                    List<Card> cards0 = board.PlayerCards[0][EnumType.longRange];
+                    string h0 = "";
+                    foreach (Card i in cards0)
+                    {
+                        CombatCard j = (CombatCard)i;
+                        h0 += $"|{j.AttackPoints}| ";
+                    }
 
+                    Console.WriteLine($"(longRange) [" + board.GetAttackPoints(EnumType.longRange) + "] : ", h0);
+                    List<Card> car0 = board.PlayerCards[0][EnumType.range];
+                    string ran0 = "";
+                    foreach (Card i in car0)
+                    {
+                        CombatCard j = (CombatCard)i;
+                        ran0 += $"|{j.AttackPoints}| ";
+                    }
+                    Console.WriteLine($"(Range) [" + board.GetAttackPoints(EnumType.range) + "] : ", ran0);
+                    List<Card> cardss0 = board.PlayerCards[0][EnumType.melee];
+                    string me0 = "";
+                    foreach (Card i in cardss0)
+                    {
+                        CombatCard j = (CombatCard)i;
+                        me0 += $"|{j.AttackPoints}| ";
+                    }
+                    Console.WriteLine($"(melee) [" + board.GetAttackPoints(EnumType.melee) + "] : ", me0);
+                }
             }
 
         }
